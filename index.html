@@ -16,7 +16,8 @@ if (newPath.length > 0) {
     console.log('newPath:'+newPath)
     console.log('正在跳转...')
     var newHref = window.location.href
-    newHref = newHref.replace('/index.html', newPath)
+    newHref = newHref.replace('/index.html', '')
+    newHref = newHref + newPath
     // window.location.href = newHref
     // console.log(window.location.href)
     console.log(newHref)
