@@ -1,6 +1,8 @@
 var newPath = '/demo/index.html'
 
-if (newPath.startsWith('/') === false) {
+if (newPath.length == 0) {
+    return
+} else if (newPath.startsWith('/') === false) {
     newPath = '/'+newPath
 }
 console.log('正在跳转...')
