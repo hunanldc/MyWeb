@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='jinglian'>
+        <p>欢迎使用完美世界精炼推荐系统</p>
+        <br>
+        <div >
+            <p>当前配置信息</p>
+            <p>
+                请输入当前游戏单价：    <input type="text" v-model="config.gameCoinPerYuan"></input> 游戏币/元
+            </p>
+            <p>
+                请输入当前幻仙单价：    <input type="text" v-model="config.price.huanxian"></input> 游戏币
+            </p>
+            <p>
+                请输入当前天罡石单价：  <input type="text" v-model="config.price.qiankun"></input> 游戏币
+            </p>
+            <p>
+                请输入当前地煞石单价1：  <input type="text" v-model="config.price.disha"></input> 游戏币
+            </p>
+        </div>
+        <br>
+        <div>
+            <p>当前市场下精炼秘籍</p>
+            <div>
+                <ul>
+                    <li v-for="item in suggestions" :key="item.level">
+                        <p>
+                            当前装备等级：{{item.level}}，建议使用：{{item.name}}，成功消耗：{{item.cost}}
+                        </p>
+                    </li >
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

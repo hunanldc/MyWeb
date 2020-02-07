@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://data.eastmoney.com/css/page_common.css?rt=20120711">
+    <link rel="stylesheet" href="http://data.eastmoney.com/css/default.css?rt=20120711">
+    <link rel="stylesheet" href="http://data.eastmoney.com/css/layer2012.css?rt=20120711">
+    <link rel="stylesheet" href="./financialEndowmentSearch.css">
+</head>
+
+<body>
+<div class="columMain calc">
+        <h1 class="title">
+            <span>基金计算器</span>
+            <span class="l"></span>
+            <span class="r"></span>
+        </h1>
+        <div class="summary">
+            描述:
+        </div>
+        <form>
+        <div class="form insurance">
+                <div class="field">
+                    <label class="label fixWidth">基金名称：</label>
+                    <input type="text" name="pingJunGongZi" id="pingJunGongZi" value="" class="text"> 元
+                </div>
+                <div class="field">
+                    <label class="label fixWidth">最大年化收益率：</label>
+                    <input type="text" name="pingJunGongZi" id="pingJunGongZi" value="" class="text"> 元
+                </div>
+                <div class="field">
+                    <label class="label fixWidth">夏普比：</label> 
+                    <input type="text" name="zhiGongGongZi" id="zhiGongGongZi" value="2836" class="text"> 元
+                </div>
+                <div class="field">
+                    <label class="label fixWidth"></label>
+                    <input type="button" value="添加" onclick="addNewFN()" class="button"> 
+                    <input class="button btnClear" type="reset" value="清除">
+                </div>
+
+                <div class="field">
+                    <label class="label fixWidth">预期年化收益：</label>
+                    <input type="text" name="danWeiBiLi" id="danWeiBiLi" value="8" class="text"> %
+                </div>
+                <div class="field">
+                    <label class="label fixWidth"></label>
+                    <input type="button" value="添加" onclick="addNewFN()" class="button"> 
+                    <input class="button btnClear" type="reset" value="清除">
+                </div>
+                <br>
+        </div>
+        <div class="dashed"></div>
+        <div class="result insurance">
+            <div class="resultTitle">计算结果</div>
+            <div class="field">
+                <label class="label">今年您每月缴存的住房公积金</label>
+                <input type="text" name="jiaoCun" id="jiaoCun" value="计算得出" disabled="disabled" class="text"> 元
+            </div>
+            <div class="field">
+                <label class="label">其中单位缴存</label>
+                <input type="text" name="danWeiJiaoCun" id="danWeiJiaoCun" value="计算得出" disabled="disabled" class="text"> 元
+            </div>
+            <div class="field">
+                <label class="label">个人缴存</label>
+                <input type="text" name="geRenJiaoCun" id="geRenJiaoCun" value="计算得出" disabled="disabled" class="text"> 元
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+<br/>
+<a href="javascript:test();">测试</a>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="./financialEndowmentSearch.js"></script>
+</html>

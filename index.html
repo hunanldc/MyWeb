@@ -5,26 +5,28 @@
 <body></body>
 <br/>
 <a href="javascript:test();">welcome</a>
+<script src="./utils/utils.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 var newPath = '/demo/index.html'
 console.log('newPath:'+newPath)
 if (newPath.length > 0) {
-    if (newPath.startsWith('/') === false) {
-        newPath = '/'+newPath
-    }
-    console.log('newPath:'+newPath)
-    console.log('正在跳转...')
-    var newHref = window.location.href
-    var index = newHref.indexOf('/MyWeb')
-    newHref = newHref.substring(0, index)
-    newHref = newHref + '/MyWeb'+newPath
-    // newHref = newHref.replace('/index.html', newPath)
-    // newHref = newHref + newPath
+    gotoRelativePath(newPath)
+    // if (newPath.startsWith('/') === false) {
+    //     newPath = '/'+newPath
+    // }
+    // console.log('newPath:'+newPath)
+    // console.log('正在跳转...')
+    // var newHref = window.location.href
+    // var index = newHref.indexOf('/MyWeb')
+    // newHref = newHref.substring(0, index)
+    // newHref = newHref + '/MyWeb'+newPath
+    // // newHref = newHref.replace('/index.html', newPath)
+    // // newHref = newHref + newPath
+    // // window.location.href = newHref
+    // // console.log(window.location.href)
     // window.location.href = newHref
-    // console.log(window.location.href)
-    window.location.href = newHref
-    console.log(newHref)
+    // console.log(newHref)
 }
 </script>
 </html>

@@ -1,5 +1,9 @@
 // https: //zhuanlan.zhihu.com/p/77573456
 // https: //zhuanlan.zhihu.com/p/77573456
+function jumptocalculatepage() {
+  var path = '/demo/FESearch/financialEndowmentSearch.html'
+  gotoRelativePath(path)
+}
 
 function getGameIDByUrl(gameUrl) {
   var key = 'gameid';
