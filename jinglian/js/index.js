@@ -14,8 +14,8 @@ new Vue({
             price: {
                 //单位：游戏币
                 huanXian: 125000,
-                tianGang:1158000,
-                diSha:1158000
+                tianGang: 1158000,
+                diSha: 1158000
             },
             //幻仙精炼成功率
             baseRate: {
@@ -100,6 +100,11 @@ new Vue({
                 resultArray.push(min(price.huanXianOnly, price.addTianGang, price.addDiSha))
             }
             return resultArray
+        }
+    },
+    methods: {
+        round(val) {
+            return Number(val.toString().match(/^\d+(?:\.\d{0,2})?/));
         }
     },
     created() {
