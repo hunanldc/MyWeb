@@ -32,12 +32,22 @@
                 <ul>
                     <li v-for="item in suggestions" :key="item.level">
                         <p>
-                            精炼：{{item.level}}上{{item.level+1}}，建议用：{{item.name}}，消耗：{{round(item.cost)}}游戏币，成本：{{round(item.cost/config.gameCoinPerYuan)}}元
+                            精炼：{{item.level}}上{{item.level+1}}，
+                            建议用：{{item.name}}，
+                            成本：{{round(item.cost/config.gameCoinPerYuan)}}元，
+                            消耗：{{round(item.cost)}}游戏币，
+                            消耗幻仙：{{round(item.huanXian)}}，
+                            天罡：{{round(item.tianGang)}}，
+                            地煞：{{round(item.diSha)}}
                         </p>
                     </li >
                 </ul>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
     <script src="node_modules/vue/dist/vue.js"></script>
     <script src="./js/index.js"></script>
