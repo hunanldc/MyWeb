@@ -27,18 +27,20 @@
         </div>
         <br>
         <div>
-            <p>当前市场下精炼秘籍</p>
+            <p>当前市场下精炼秘籍 <button @click="hiddenDetail = !hiddenDetail">详细信息</button></p>
             <div>
                 <ul>
                     <li v-for="item in suggestions" :key="item.level">
                         <p>
-                            精炼：{{item.level}}上{{item.level+1}}，
-                            建议用：{{item.name}}，
-                            成本：{{round(item.cost/config.gameCoinPerYuan)}}元，
+                            精炼：{{item.level}}上<strong style="color: red;">{{item.level+1}}</strong>，
+                            用：{{item.name}}，
+                            成本：<strong style="color: red;">{{round(item.cost/config.gameCoinPerYuan)}}</strong>元，
+                           <div v-show="!hiddenDetail">
                             消耗：{{round(item.cost)}}游戏币，
                             消耗幻仙：{{round(item.huanXian)}}，
                             天罡：{{round(item.tianGang)}}，
                             地煞：{{round(item.diSha)}}
+                           </div>
                         </p>
                     </li >
                 </ul>

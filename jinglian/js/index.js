@@ -32,12 +32,13 @@ new Vue({
                 10:0.15,
                 11:0.1,
             },
-            //乾坤，地煞精炼成功率
+            //天罡，地煞精炼成功率
             fuzhushiRate: {
                 tianGang:0.15,//失败掉到0
                 diSha:0.035//失败掉1级
             }
-        }
+        },
+        hiddenDetail: false
     },
     computed: {
         suggestions: function () {
