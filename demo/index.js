@@ -5,6 +5,11 @@ function jumptocalculatepage() {
   gotoRelativePath(path)
 }
 
+function jumptojinglianpage () {
+  var path = '/jinglian/index.html'
+  gotoRelativePath(path)
+}
+
 function getGameIDByUrl(gameUrl) {
   var key = 'gameid';
   gameUrl = gameUrl.toLowerCase();
