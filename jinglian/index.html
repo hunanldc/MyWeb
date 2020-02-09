@@ -6,11 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>精炼宝典</title>
 </head>
-<style>
-    [v-clock] {
-        display:none
-    }
-</style>
 <body>
     <div id='jinglian'>
         <p>欢迎使用完美世界精炼推荐系统</p>
@@ -32,15 +27,15 @@
         </div>
         <br>
         <div>
-            <p>当前市场下精炼秘籍 <button @click="hiddenDetail = !hiddenDetail">详细信息</button></p>
+            <p>当前市场下精炼秘籍 <button @click="config.hiddenDetail = !config.hiddenDetail">详细信息</button></p>
             <div>
                 <ul>
                     <li v-for="item in suggestions" :key="item.level">
-                        <p v-clock>
+                        <p>
                             精炼：{{item.level}}上<strong style="color: red;">{{item.level+1}}</strong>，
                             用：{{item.name}}，
                             成本：<strong style="color: red;">{{round(item.cost/config.gameCoinPerYuan)}}</strong>元，
-                           <div v-show="!hiddenDetail">
+                           <div v-show="!config.hiddenDetail">
                             消耗：{{round(item.cost)}}游戏币，
                             消耗幻仙：{{round(item.huanXian)}}，
                             天罡：{{round(item.tianGang)}}，

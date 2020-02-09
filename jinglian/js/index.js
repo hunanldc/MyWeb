@@ -10,12 +10,12 @@ new Vue({
     data: {
         config: {
             //单位：元
-            gameCoinPerYuan: 1400000,
+            gameCoinPerYuan: 1418000,
             price: {
                 //单位：游戏币
-                huanXian: 125000,
-                tianGang: 1158000,
-                diSha: 1158000
+                huanXian: 131000,
+                tianGang: 1250000,
+                diSha: 1250000
             },
             //幻仙精炼成功率
             baseRate: {
@@ -36,9 +36,9 @@ new Vue({
             fuzhushiRate: {
                 tianGang:0.15,//失败掉到0
                 diSha:0.035//失败掉1级
-            }
-        },
-        hiddenDetail: false
+            },
+            hiddenDetail: false
+        }
     },
     computed: {
         suggestions: function () {
@@ -121,16 +121,34 @@ new Vue({
                         }
                     }
                 }
-                // debugger
                 resultArray.push(min(price.huanXianOnly, price.addTianGang, price.addDiSha))
             }
             return resultArray
         }
     },
+    watch: {
+        config: {
+            deep: true,
+            handler() {
+                this.saveData()
+            }
+        }
+    },
     methods: {
         round(val) {
             return Number(val.toString().match(/^\d+(?:\.\d{0,2})?/));
+        },
+        saveData() {
+            localStorage.setItem('config', JSON.stringify(this.config))
+        },
+        readData() {
+            if (localStorage.getItem('config')) {
+                this.config = JSON.parse(localStorage.getItem('config'))
+            }
         }
+    },
+    mounted() {
+        this.readData()
     },
     created() {
         // window.alert('hellooworld')
