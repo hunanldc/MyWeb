@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <div id="test">
+    <br>
+    <input type="text" alt="请输入method" v-model="inputData.method"></input>
+    <input type="text" alt="请输入params" v-model="inputData.params"></input>
+    <input type="text" alt="请输入callback" v-model="inputData.callback"></input>
+    <br>
+    <button @click="test()">
+        测试
+    </button>
+    <br>
+   </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+<script>
+
+new Vue({
+    el:'#test',
+    data: {
+        inputData: {
+            method: 'test',
+            params: '{}',
+            callback: 'callback'
+        }
+    },
+    methods: {
+        test() {
+            console.log('测试')
+            this[this.inputData.callback] = function(data) {
+                console.log('返回数据', data)
+            }
+            // Global.Client.callApp()
+        }
+    },
+})
+</script>
+</html>
