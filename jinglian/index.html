@@ -35,6 +35,7 @@
                             精炼：{{item.level}}上<strong style="color: red;">{{item.level+1}}</strong>，
                             用：{{item.name}}，
                             成本：<strong style="color: red;">{{round(item.cost/config.gameCoinPerYuan)}}</strong>元，
+                            概率：{{item.rate}},
                            <div v-show="!config.hiddenDetail">
                             消耗：{{round(item.cost)}}游戏币，
                             消耗幻仙：{{round(item.huanXian)}}，

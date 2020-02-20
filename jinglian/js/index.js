@@ -56,7 +56,8 @@ new Vue({
                     cost: 0,
                     huanXian: 0,
                     tianGang: 0,
-                    diSha: 0
+                    diSha: 0,
+                    rate: 0
                 }
                 let preLevelPrice = preLevelObj.cost
                 let price = {
@@ -73,6 +74,7 @@ new Vue({
                             huanXian: (preLevelObj.huanXian + 1) / rate,
                             tianGang: preLevelObj.tianGang / rate,
                             diSha: preLevelObj.diSha / rate,
+                            rate: rate
                         }
                     },
                     addTianGang: ()=> {
@@ -88,6 +90,7 @@ new Vue({
                             huanXian: (preLevelObj.huanXian + 1) / rate,
                             tianGang: (preLevelObj.tianGang + 1) / rate,
                             diSha: preLevelObj.diSha / rate,
+                            rate: rate
                         }
                     },
                     addDiSha: ()=> {
@@ -118,6 +121,7 @@ new Vue({
                             huanXian: (preLevelObj.huanXian + 1) / rate - left.huanXian,
                             tianGang: (preLevelObj.tianGang) / rate - left.tianGang,
                             diSha: (preLevelObj.diSha + 1) / rate - left.diSha,
+                            rate: rate
                         }
                     }
                 }
