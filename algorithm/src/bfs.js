@@ -36,3 +36,16 @@ function bfRecursionSearch(nodes) {
     }
     bfRecursionSearch(nextNodes)
 }
+
+
+//数组结构
+function bfSearchArr(a) {
+    if (!a || !(a instanceof Array) || a.length === 0) {
+        return
+    }
+    for (var i = 0; i<a.length; i++) {
+        if (a[i] > 0) {
+            console.log(a[i])
+        }
+    }
+}
