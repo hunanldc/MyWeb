@@ -10,6 +10,11 @@ function jumptojinglianpage () {
   gotoRelativePath(path)
 }
 
+function jumptoalgorithmpage () {
+  var path = '/algorithm/index.html'
+  gotoRelativePath(path)
+}
+
 function getGameIDByUrl(gameUrl) {
   var key = 'gameid';
   gameUrl = gameUrl.toLowerCase();

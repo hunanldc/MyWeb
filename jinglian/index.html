@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>精炼宝典</title>
+            <!-- vue -->
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 </head>
 <body>
     <div id='jinglian'>
@@ -35,6 +37,7 @@
                             精炼：{{item.level}}上<strong style="color: red;">{{item.level+1}}</strong>，
                             用：{{item.name}}，
                             成本：<strong style="color: red;">{{round(item.cost/config.gameCoinPerYuan)}}</strong>元，
+                            概率：{{item.rate}},
                            <div v-show="!config.hiddenDetail">
                             消耗：{{round(item.cost)}}游戏币，
                             消耗幻仙：{{round(item.huanXian)}}，
@@ -51,7 +54,7 @@
         <br>
         <br>
     </div>
-    <script src="node_modules/vue/dist/vue.js"></script>
+    <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
     <script src="./js/index.js"></script>
 </body>
 </html>
