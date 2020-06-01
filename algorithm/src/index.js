@@ -16,3 +16,9 @@ function testbsttree() {
     console.log('algorithm/src/index.js testbsttree')
     bsttreeMain()
 }
+
+function testsort() {
+    //sort.js
+    console.log('algorithm/src/index.js testsort')
+    testtreesort()
+}
