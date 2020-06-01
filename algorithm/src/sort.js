@@ -17,10 +17,10 @@ function createHeap(arr) {
     //
     heap.push(arr[i]) //在末尾添加元素
     //向上调整，找到父节点index，调整
-    let index = Math.floor(i/2) //eg: 1/2 = 0
-    let rs = ajustNode(heap, index) //
+    let index = fatherIndex(i) //eg: 1/2 = 0
+    let rs = ajustNode(heap, index)
     while(rs != 0 && index >= 0) {
-      index = Math.floor(index/2) // 计算父节点
+      index = fatherIndex(index) //计算父节点
       rs = ajustNode(heap, index)
     }
     i++
@@ -31,16 +31,16 @@ function createHeap(arr) {
 function heapSort(heap){
   let result = []
   let i = heap.length
-  while(i-- >= 0) {
+  while(--i >= 0) {
     result.push(heap[0])
-    swap(0, heap[i])
+    swap(0, i)
+    heap.pop()
     //向下调整
     let index = 0
     let rs = ajustNode(heap, index)
-    index = (rs === -1)?index*2+1:index*2+2
-    while(rs !== 0) {
+    while(rs !== 0 && index < heap.length) {
+      index = (rs === -1)?leftIndex(index):rightIndex(index)
       rs = ajustNode(heap, index)
-      index = (rs === -1)?index*2+1:index*2+2
     }
   }
   return result
@@ -59,12 +59,12 @@ function ajustNode(heap, n) {  // return 0未调整 -1与左子节点调换 1与
     if (right && right < min) {
       min = right
       if (min < heap[n]) {
-        swap(2*n + 2, n)
+        swap(rightIndex(n), n)
         return 1
       }
     }
     if (min < heap[n]) {
-      swap(2*n + 1, n)
+      swap(leftIndex(n), n)
       return -1
     }
   }
@@ -72,24 +72,36 @@ function ajustNode(heap, n) {  // return 0未调整 -1与左子节点调换 1与
 }
 
 // n 从 0 开始
+function fatherIndex(n) {
+  return n>0?Math.floor((n-1)/2):0
+}
+
+function leftIndex(n) {
+  return 2*n + 1
+}
+
+function rightIndex(n) {
+  return leftIndex(n) + 1
+}
+
 function hasLeft(heap, n) {
-  return 2*n + 1 < heap.length
+  return leftIndex(n) < heap.length
 }
 
 function hasRight(heap, n) {
-  return 2*n + 2 < heap.length
+  return rightIndex(n) < heap.length
 }
 
 function getLeft(heap, n) {
   if (hasLeft(heap, n)) {
-    return heap[2*n+1]
+    return heap[leftIndex(n)]
   }
   return null
 }
 
 function getRight(heap, n) {
   if (hasRight(heap, n)) {
-    return heap[2*n + 2]
+    return heap[rightIndex(n)]
   }
   return null
 }
