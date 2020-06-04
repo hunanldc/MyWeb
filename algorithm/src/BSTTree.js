@@ -78,7 +78,7 @@ function deleteNode(root, node) {
     return
   }
   let deleteNode = findNode(root, node)
-  if (!deleteNode.left && !deleteNode.right) {
+  if (!deleteNode.left && !deleteNode.right) {//被删除节点，无左右子节点，直接删除
     //找到父节点
     let parent = findParentOfNode(root, node)
     if (parent.left === deleteNode) {
@@ -86,7 +86,7 @@ function deleteNode(root, node) {
     } else {
       parent.right = null
     }
-  } else if (deleteNode.left) {
+  } else if (deleteNode.left) {//被删除节点有左子节点
     //有左子节点，也可能有右子节点
     //找左子树的最右节点
     let LTRNode = deleteNode.left
@@ -96,13 +96,10 @@ function deleteNode(root, node) {
       LTRFNode = LTRNode
       LTRNode = LTRNode.right
     }
-    //最右节点，一定没有右子节点，可能有左子节点
-    LTRFNode.left = LTRNode.left
+    //最右节点，一定没有右子节点，可能有左子节点，删除左子树最右节点，用其左子节点代替他的位置
+    LTRFNode.right = LTRNode.left
     //用左子树最右节点替代被删节点
-    deleteNode.value = LTRNode.value
-    //删除左子树最右节点
-    // LTRNode = null js 无法直接这样删除，必须用下面的一条语句
-    LTRFNode.right = null
+    deleteNode.value = LTRNode.valu
   } else {
     //只有右子节点或者没有子节点
     //找右子树最左节点

@@ -18,7 +18,7 @@ function testbsttree() {
 }
 
 function testsort() {
-    //sort.js
+    //heapSort.js
     console.log('algorithm/src/index.js testsort')
     testtreesort()
 }
