@@ -17,8 +17,14 @@ function testbsttree() {
     bsttreeMain()
 }
 
-function testsort() {
+function testHeapSort() {
     //heapSort.js
-    console.log('algorithm/src/index.js testsort')
+    console.log('algorithm/src/index.js testHeapSort')
     testtreesort()
+}
+
+function testFastSort() {
+    //fastSort.js
+    console.log('algorithm/src/index.js testFastSort')
+    testFastSortMain()
 }
