@@ -1,5 +1,5 @@
 function testFastSortMain() {
-  let arr = [12,13,15,17,4,5,6,3,1,9,7,20,13,14]
+  let arr = [12,13,15,17,4,5,6,3,1,9,7,20,14]
   sortTest('快速排序测试', arr, fastSort)
 }
 
@@ -47,8 +47,6 @@ function innerFastSort(arr, start, len) {
       if (left === right) {
         innerFastSort(arr, 0, left)
         innerFastSort(arr, right+1, start+len-right-1)
-      } else {
-        console.log('err:', left, right)
       }
     }
   }

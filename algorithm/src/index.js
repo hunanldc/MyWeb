@@ -28,3 +28,9 @@ function testFastSort() {
     console.log('algorithm/src/index.js testFastSort')
     testFastSortMain()
 }
+
+function testBinarySearch() {
+    //fastSort.js
+    console.log('algorithm/src/index.js testBinarySearch')
+    testBinarySearchMain()
+}
