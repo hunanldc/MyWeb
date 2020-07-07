@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "5GHU44CJHG.com.tencent.trtcScenesDemo",
+                "paths": [ "/hunanldc/MyWeb/tree/feature/dev_universal_links/"]
+            }
+        ]
+    }
+}
