@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.search{
+    width-min:50%;
+    padding-right:10px;
+    padding-left:20px;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <div id="test">
+    <br>
+    <input type="text" class="search" alt="请输入method" v-model="filterPattern" @keyup.enter="filter()"></input>
+    <Button type="button" width="80px" height="40px" font="14px">搜索</Button>
+    <br>
+    <textarea rows="30" cols="200" font="14px">{{inputContent}}</textarea>
+    <br>
+    <Button type="button" width="80px" height="40px" font="14px" @click="onInputContentFinish">完成</Button>
+    <br>
+    <input type="text" alt="请输入params" v-model="inputData.params"></input>
+    <input type="text" alt="请输入callback" v-model="inputData.callback"></input>
+    <br>
+    <button @click="test()">
+        测试
+    </button>
+    <br>
+
+
+    
+   </div>
+    <script src="../test/node_modules/vue/dist/vue.js"></script>
+    <!-- <script src="./index.js"></script> -->
+</body>
+<script>
+
+new Vue({
+    el:'#test',
+    data: {
+        inputContent:'内容',
+        filterPattern: '',
+        inputData: {
+            method: 'test',
+            params: '{}',
+            callback: 'callback'
+        }
+    },
+    methods: {
+        test() {
+            console.log('测试')
+            this[this.inputData.callback] = function(data) {
+                console.log('返回数据', data)
+            }
+            // Global.Client.callApp()
+        },
+        filter() {
+            console.log('用户点击enter', this.filterPattern)
+        },
+        onInputContentFinish() {
+            console.log(this.inputContent)
+        }
+    },
+})
+</script>
+</html>
