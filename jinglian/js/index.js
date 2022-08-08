@@ -90,7 +90,7 @@ new Vue({
                     let preLevelCost = preLevelPrice
                     let currentCost = huanXianPerTime * configPrice.huanXian
                     let costPerTime = preLevelCost + currentCost
-                    // console.log('精炼',i,'升',i+1,' 辅助：幻仙',' 成功率', rate,'，单次成本',preLevelCost,'+',currentCost,'合计',costPerTime,' 成功成本',costPerTime / rate)
+                    console.log('精炼',i,'升',i+1,' 辅助：幻仙',' 成功率', rate,'，单次成本',preLevelCost,'+',currentCost,'合计',costPerTime,' 成功成本',costPerTime / rate)
                     price.huanXianOnly = {
                         cost: costPerTime / rate,
                         name: '幻仙',
@@ -102,11 +102,12 @@ new Vue({
                     }
                 }
                 {
-                    let rate = this.config.baseRate[i] + this.config.fuzhushiRate.tianGang
+                    let rateNum = this.config.baseRate[i] + this.config.fuzhushiRate.tianGang
+                    let rate = rateNum.toFixed(3)
                     let preLevelCost = preLevelPrice
                     let currentCost = huanXianPerTime * configPrice.huanXian + configPrice.tianGang
                     let costPerTime = preLevelCost + currentCost
-                    // console.log('精炼',i,'升',i+1,' 辅助：天罡',' 成功率', rate,'，单次成本',preLevelCost,'+',currentCost,'合计',costPerTime,' 成功成本',costPerTime / rate)
+                    console.log('精炼',i,'升',i+1,' 辅助：天罡',' 成功率', rate,'，单次成本',preLevelCost,'+',currentCost,'合计',costPerTime,' 成功成本',costPerTime / rate)
 
                     price.addTianGang = {
                         cost: costPerTime / rate,
@@ -119,7 +120,8 @@ new Vue({
                     }
                 }
                 {
-                    let rate = this.config.baseRate[i] + this.config.fuzhushiRate.diSha
+                    let rateNum = this.config.baseRate[i] + this.config.fuzhushiRate.diSha
+                    let rate = rateNum.toFixed(3)
                     let preLevelCost = preLevelPrice
                     let currentCost = huanXianPerTime * configPrice.huanXian + configPrice.diSha
                     //地煞石，精炼失败，只会降1级，还有剩余价值
@@ -129,15 +131,17 @@ new Vue({
                         tianGang: 0,
                         diSha: 0
                     }
-                    let leftNum = (1/rate - 1)
+                    let failTimesNum = (1/rate - 1)
+                    let failTiems = failTimesNum.toFixed(3)
                     if (resultArray.length > 1) {
                         let prePreObj = resultArray[resultArray.length - 2]
-                        left.cost = prePreObj.cost * (1/rate - 1)
-                        left.huanXian = prePreObj.huanXian * (1/rate - 1)
-                        left.tianGang = prePreObj.tianGang * (1/rate - 1)
-                        left.diSha = prePreObj.diSha * (1/rate - 1)
+                        console.log('单次剩余价值 prePreObj.cost：', prePreObj.cost, '单次成功率：', rate, '失败次数：', failTiems)
+                        left.cost = prePreObj.cost * failTiems
+                        left.huanXian = prePreObj.huanXian * failTiems
+                        left.tianGang = prePreObj.tianGang * failTiems
+                        left.diSha = prePreObj.diSha * failTiems
                     }
-                    // console.log('精炼',i,'升',i+1,' 辅助：地煞',' 剩余价值：',left.cost)
+                    console.log('精炼',i,'升',i+1,' 辅助：地煞',' 成功率', rate, ' 剩余价值：',left.cost)
                     let costPerTime = preLevelCost + currentCost
                     // console.log('精炼',i,'升',i+1,' 辅助：地煞',' 成功率', rate,'，单次成本',preLevelCost,'+',currentCost,'合计',costPerTime,' 成功成本',costPerTime / rate - left.cost)
                     price.addDiSha = {
